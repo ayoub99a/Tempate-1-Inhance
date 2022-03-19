@@ -1,17 +1,14 @@
 /* Start Variables */
 
-
-/* End Varibles */
-
 :root {
     --mainColor: #10CAB7;
     --secondaryColor: #2C4755;
     --sections-padding: 60px;
     --sections-background: #F6F6F6;
-    --main-duration: 0.5s
+    --main-duration: 0.3s
 }
 
-
+/* End Varibles */
 /* Start Global Rules */
 
 *{
@@ -23,8 +20,6 @@
 body{
     font-family: 'Work Sans', sans-serif;
 }
-
-
 
 .container {
     padding-left: 15px;
@@ -74,14 +69,12 @@ html {
     margin: 0;
 }
 
-
 .special-heading + p {
     margin-top: -30px;
     text-align: center;
     font-size: 20px;
     color: #797979
 }
-
 
 @media (max-width: 767px) {
     .special-heading {
@@ -104,7 +97,8 @@ html {
 }
 
 .header .logo {
-    width: 60px
+    width: 60px;
+    cursor: pointer
 }
 
 .header .links {
@@ -174,8 +168,6 @@ html {
 .header .links ul a:hover {padding-left: 25px}
 
 /* End Header */
-
-
 /* Start Landing Section */
 
 .landing {
@@ -196,12 +188,14 @@ html {
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
+
 .landing .intro-text h1 {
     margin: 0;
     color: var(--mainColor);
     font-size: 50px;
     font-weight: 800
 }
+
 .landing .intro-text p{
     font-size: 20px;
     line-height: 1.8
@@ -223,16 +217,46 @@ html {
 
 .features .feat {
     padding: 20px;
-    text-align: center
+    text-align: center;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.features .feat::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #e4e4e4;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    transition: var(--main-duration);
+}
+
+.features .feat:hover::before {
+    height: 100%
 }
 
 .features .feat i {
     color: var(--mainColor);
+    transition: color var(--main-duration), transform var(--main-duration);
+}
+
+.features .feat:hover i {
+    transform: scale(1.1);
 }
 
 .features .feat h3 {
     font-weight: 800;
-    margin: 30px 0
+    margin: 30px 0;
+    transition: font var(--main-duration);
+}
+
+.features .feat:hover h3 {
+    font-size: 20px
 }
 
 .features .feat p {
@@ -241,9 +265,7 @@ html {
     font-size: 18px
 }
 
-
 /* End Features Section  */
-
 /* Start Services */
 
 .services {
@@ -252,11 +274,25 @@ html {
 }
 
 .services .services-content {
-    margin-top: 100px
+    margin-top: 100px;
+}
+
+.services .services-content .col {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
 }
 
 .services .services-content .srv {
     display: flex;
+    border: 2px solid #EBECED;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform var(--main-duration);
+}
+
+.services .services-content .srv:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 767px) {
@@ -264,21 +300,19 @@ html {
 .services .services-content .srv {
     flex-direction: column;
     text-align: center;
-}
-
+    }
 }
 
 .services .services-content .srv i {
     margin-top: 20px;
     color: var(--mainColor);
-    flex-basis: 60px
+    flex-basis: 60px;
 }
-
 
 .services .services-content .srv .cont {flex: 1}
 
 .services .services-content .srv .cont h3 {
-    margin: 0 0 20px
+    margin: 0 0 15px;
 }
 
 .services .services-content .srv .cont p {
@@ -289,7 +323,13 @@ html {
 
 .services .services-content .image {
     position: relative;
-    text-align: center
+    text-align: center;
+    transition: transform var(--main-duration);
+    cursor: pointer
+}
+
+.services .services-content .image:hover {
+    transform: scale(1.05);
 }
 
 .services .services-content .image::before {
@@ -313,7 +353,6 @@ html {
 }
 
 /* End Services */
-
 /* Start Portfolio */
 
 .portfolio {
@@ -328,7 +367,16 @@ html {
 
 .portfolio .portfolio-content .card {
     background-color: white;
-    box-shadow: 0 0 10px rgb(212, 212, 212)
+    box-shadow: 0 0 20px #DDD;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--main-duration)
+}
+
+.portfolio .portfolio-content .card:hover {
+    transform: scale(1.1);
 }
 
 .portfolio .portfolio-content .card img {
@@ -337,18 +385,26 @@ html {
 
 .portfolio .portfolio-content .card .cont {
     background-color: #FFF;
-    padding: 20px
+    position: absolute;
+    bottom: -100%;
+    width: 100%;
+    left: 0;
+    transition: bottom 0.5s;
+}
+
+.portfolio .portfolio-content .card:hover .cont {
+    bottom: 0
 }
 
 .portfolio .portfolio-content .card .cont h3 {
-    margin: 0
+    margin: 10px 0 0 10px
 }
 
 .portfolio .portfolio-content .card .cont p {
     line-height: 1.6;
     color: #777;
     font-weight: 300;
-    margin-bottom: 0
+    margin: 10px
 }
 
 @media(max-width: 676px) {
@@ -356,8 +412,6 @@ html {
 }
 
 /* End Portfolio */
-
-
 /* Start About Us */
 
 .about {
@@ -382,7 +436,8 @@ html {
 .about .about-content .image {
     position: relative;
     width: 350px;
-    height: 250px
+    height: 250px;
+    cursor: pointer
 }
 
 @media(max-width: 991px) {
@@ -428,10 +483,9 @@ html {
 .about .about-content .cont p:first-of-type {
     line-height: 1.8;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 600;
     padding-bottom: 60px;
 }
-
 
 .about .about-content .cont hr {
     width: 50%;
@@ -441,18 +495,13 @@ html {
     background-color: var(--mainColor)
 }
 
-
 .about .about-content .cont p:last-of-type {
     line-height: 1.6;
     font-size: 18px;
     color: #777
 }
 
-
 /* End About Us */
-
-
-
 /* Start Contact */
 
 .contact {
@@ -480,8 +529,12 @@ html {
     font-weight: 800;
     color: var(--mainColor);
     text-decoration: none;
+    transition: var(--main-duration);
 }
 
+.contact .contact-content .link:hover {
+    color: rgb(16 202 183 / 50%)
+}
 
 .contact .contact-content .social {
     display: flex;
@@ -490,11 +543,15 @@ html {
     margin-top: 40px;
 }
 
-
 .contact .contact-content .social i {
     color: var(--secondaryColor);
     font-size: 19px;
-    cursor: pointer
+    cursor: pointer;
+    transition: var(--main-duration);
+}
+
+.contact .contact-content .social i:hover {
+    color: var(--mainColor)
 }
 
 @media (max-width: 767px) {
@@ -503,9 +560,6 @@ html {
 }
 
 /* End Contact  */
-
-
-
 /* Start Footer */
 
 .footer {
@@ -522,9 +576,7 @@ html {
     font-weight: 800
 }
 
-
 /* End Footer */
-
 /* Start My Framework  */
 
 .grid-sys {
@@ -532,7 +584,5 @@ html {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 30px;
 }
-
-
 
 /* End My Framework */
