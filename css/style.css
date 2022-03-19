@@ -376,7 +376,7 @@ html {
 }
 
 .portfolio .portfolio-content .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .portfolio .portfolio-content .card img {

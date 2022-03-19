@@ -70,3 +70,5 @@ NO thing
 
 2. .contact-content .social i
    CSS => Change it's color when **HOVER**
+
+## Second commit for V1.1 to decrease scale-up for portfolio img 
